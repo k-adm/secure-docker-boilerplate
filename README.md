@@ -29,7 +29,7 @@ A production-ready, security-hardened Docker boilerplate with **Nginx + FastAPI 
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/YOUR_USERNAME/secure-docker-boilerplate.git
+git clone https://github.com/k-adm/secure-docker-boilerplate.git
 cd secure-docker-boilerplate
 
 # 2. Create your .env file
