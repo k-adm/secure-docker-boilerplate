@@ -18,7 +18,7 @@ A production-ready, security-hardened Docker boilerplate with **Nginx + FastAPI 
 | Read-only filesystems | App and Nginx have immutable root FS |
 | Capabilities dropped | `cap_drop: ALL` - only required caps are added back |
 | No privilege escalation | `no-new-privileges` blocks suid/sgid exploits |
-| Security headers | CSP, HSTS, X-Frame-Options, X-Content-Type-Options |
+| Security headers | CSP, X-Frame-Options, X-Content-Type-Options, HSTS (ready, activate after TLS) |
 | Hidden server version | `server_tokens off` - Nginx version not exposed |
 | Isolated network | Services communicate over a private bridge network |
 | Healthchecks | Every service has a health probe configured |

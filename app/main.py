@@ -53,5 +53,5 @@ async def db_health():
     try:
         result = await app.state.db_pool.fetchval("SELECT 1")
         return {"database": "ok", "result": result}
-    except Exception as e:
-        return {"database": "error", "detail": str(e)}
+    except Exception:
+        return {"database": "error"}

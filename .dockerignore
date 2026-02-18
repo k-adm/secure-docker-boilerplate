@@ -17,3 +17,7 @@ __pycache__/
 # Compose and Make — orchestration only, not part of the build
 docker-compose.yml
 Makefile
+
+# IDE
+.vscode/
+.idea/
