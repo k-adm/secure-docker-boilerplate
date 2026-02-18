@@ -1,0 +1,15 @@
+# Environment variables (secrets!) — only .env.example is tracked
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
