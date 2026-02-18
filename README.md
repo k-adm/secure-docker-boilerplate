@@ -123,23 +123,6 @@ secure-docker-boilerplate/
 
 ---
 
-## Go Pro
-
-Need more? Check out the **Production Hardened Kit** - everything in this boilerplate, plus:
-
-- **WAF** - ModSecurity with OWASP Core Rule Set
-- **Rate Limiting** - protect against brute-force and DDoS
-- **Redis** - hardened config with ACLs and renamed commands
-- **Automated Backups** - PostgreSQL to S3 on a schedule
-- **Monitoring** - Prometheus metrics + Grafana dashboards
-- **Gunicorn** - production ASGI server with tuned workers
-- **CI/CD** - GitHub Actions pipelines for build, test, deploy
-- **Auto-SSL** - Certbot integration with auto-renewal
-
-👉 [Get the Production Hardened Kit](https://your-link.lemonsqueezy.com)
-
----
-
 ## Contributing
 
 Contributions are welcome! Feel free to open issues or submit pull requests.
