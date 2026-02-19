@@ -31,7 +31,7 @@ This boilerplate is built with security as a first-class concern:
 |---------|---------------|
 | Non-root containers | All services run as unprivileged users |
 | Read-only filesystems | App and Nginx have immutable root FS |
-| Dropped capabilities | `cap_drop: ALL` — only required caps re-added |
+| Dropped capabilities | `cap_drop: ALL` - only required caps re-added |
 | No privilege escalation | `no-new-privileges` flag set |
 | Security headers | CSP, X-Frame-Options, X-Content-Type-Options, HSTS (ready, activate after TLS) |
 | Hidden server tokens | `server_tokens off` |
@@ -44,13 +44,13 @@ This boilerplate is built with security as a first-class concern:
 |------|------|---------|-------|--------|
 | 2026-02-19 | [Trivy](https://github.com/aquasecurity/trivy) | 0.69.1 | All container images (nginx, app, postgres) | [docs/security/](docs/security/trivy-audit-2026-02-19.md) |
 
-### 2026-02-19 Audit — TL;DR
+### 2026-02-19 Audit - TL;DR
 
 Scanned all three images with `--scanners vuln,misconfig,secret --severity HIGH,CRITICAL`.
 
 - **0 misconfigurations** across all images
 - **0 secrets** detected in any image
-- **1 exploitable CVE** found and fixed: [CVE-2025-62727](https://nvd.nist.gov/vuln/detail/CVE-2025-62727) (Starlette DoS via Range header) — resolved by upgrading FastAPI and stripping the `Range` header in Nginx
+- **1 exploitable CVE** found and fixed: [CVE-2025-62727](https://nvd.nist.gov/vuln/detail/CVE-2025-62727) (Starlette DoS via Range header) - resolved by upgrading FastAPI and stripping the `Range` header in Nginx
 - All other findings (17 in nginx OS libs, 6 in postgres gosu binary) assessed as **not exploitable** in this deployment context
 
 See the [full audit report](docs/security/trivy-audit-2026-02-19.md) for details.

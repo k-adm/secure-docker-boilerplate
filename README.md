@@ -24,7 +24,7 @@ A production-ready, security-hardened Docker boilerplate with **Nginx + FastAPI 
 | Isolated network | Services communicate over a private bridge network |
 | Healthchecks | Every service has a health probe configured |
 | Patched OS packages | `apk upgrade --no-cache` in nginx Dockerfile ensures OS libs are always up-to-date at build time |
-| Range header filtering | Nginx strips the `Range` header before proxying — prevents DoS attacks on upstream file-serving endpoints |
+| Range header filtering | Nginx strips the `Range` header before proxying - prevents DoS attacks on upstream file-serving endpoints |
 
 ---
 
