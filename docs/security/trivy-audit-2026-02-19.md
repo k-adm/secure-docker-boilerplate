@@ -105,6 +105,6 @@ Per Nginx docs, a header set to an empty string is not forwarded to the upstream
 
 ## See Also
 
-- [nginx detailed report](nginx.md)
-- [app detailed report](app.md)
-- [postgres detailed report](db.md)
+- [nginx detailed report](vulnerability-report-nginx-en.md)
+- [app detailed report](vulnerability-report-app-en.md)
+- [postgres detailed report](vulnerability-report-db-en.md)
