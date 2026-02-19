@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Docker Compose](https://img.shields.io/badge/Docker_Compose-v2-blue.svg)](https://docs.docker.com/compose/)
 [![Python](https://img.shields.io/badge/Python-3.12-yellow.svg)](https://www.python.org/)
+[![Security Audited](https://img.shields.io/badge/Security-Audited-brightgreen.svg)](SECURITY.md)
 
 > **95% of Docker tutorials run containers as root. This is dangerous. Here is how to do it right.**
 
@@ -22,6 +23,8 @@ A production-ready, security-hardened Docker boilerplate with **Nginx + FastAPI 
 | Hidden server version | `server_tokens off` - Nginx version not exposed |
 | Isolated network | Services communicate over a private bridge network |
 | Healthchecks | Every service has a health probe configured |
+| Patched OS packages | `apk upgrade --no-cache` in nginx Dockerfile ensures OS libs are always up-to-date at build time |
+| Range header filtering | Nginx strips the `Range` header before proxying — prevents DoS attacks on upstream file-serving endpoints |
 
 ---
 
@@ -81,6 +84,18 @@ All services run on an isolated bridge network. Only Nginx exposes port 80 to th
 
 ---
 
+## Security Audits
+
+Container images are scanned with [Trivy](https://github.com/aquasecurity/trivy) for vulnerabilities, misconfigurations, and secrets.
+
+| Date | Tool | Result | Report |
+|------|------|--------|--------|
+| 2026-02-19 | Trivy 0.69.1 | 0 misconfigs · 0 secrets · 1 CVE fixed | [docs/security/](docs/security/trivy-audit-2026-02-19.md) |
+
+See [SECURITY.md](SECURITY.md) for the vulnerability disclosure policy.
+
+---
+
 ## Available Make Commands
 
 ```
@@ -101,6 +116,12 @@ make shell-db    Open psql in the database container
 
 ```
 secure-docker-boilerplate/
+├── docs/
+│   └── security/
+│       ├── trivy-audit-2026-02-19.md           # Consolidated security audit
+│       ├── vulnerability-report-nginx-en.md    # nginx image CVE report
+│       ├── vulnerability-report-app-en.md      # app image CVE report
+│       └── vulnerability-report-db-en.md       # postgres image CVE report
 ├── app/
 │   ├── Dockerfile            # Multi-stage build, non-root user
 │   ├── main.py               # FastAPI app with health endpoints
@@ -118,6 +139,7 @@ secure-docker-boilerplate/
 ├── docker-compose.yml        # Orchestration with security hardening
 ├── LICENSE                   # MIT
 ├── Makefile                  # Convenient shortcuts
+├── SECURITY.md               # Vulnerability reporting policy
 └── README.md
 ```
 
