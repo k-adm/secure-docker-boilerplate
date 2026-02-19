@@ -1,8 +1,10 @@
 # Alpine-based — minimal footprint (~40 MB)
 FROM nginx:1.27-alpine
 
-# Remove default config to avoid conflicts
-RUN rm /etc/nginx/conf.d/default.conf
+# Upgrade all OS packages to pick up security patches without waiting
+# for an upstream base image update (fixes libcrypto3, libssl3, libxml2, libpng)
+RUN apk upgrade --no-cache \
+    && rm /etc/nginx/conf.d/default.conf
 
 # Copy hardened config and security headers
 COPY nginx.conf            /etc/nginx/nginx.conf
